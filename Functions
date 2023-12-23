@@ -32,3 +32,31 @@ func test(s1 string, s2 string) {
 	fmt.Println(concat(s1, s2))
 }
 -----
+
+2. MULTIPLE PARAMETERS
+
+When multiple arguments are of the same type, and are next to each other in the function signature, the type only needs to be declared after the last argument.
+
+Here are some examples:
+func addToDatabase(hp, damage int) {
+  // ...
+}
+func addToDatabase(hp, damage int, name string) {
+  // ?
+}
+func addToDatabase(hp, damage int, name string, level int) {
+  // ?
+}
+
+3. DECLARATION SYNTAX
+
+GO-STYLE SYNTAX
+Go's declarations are clear, you just read them left to right, just like you would in English.
+
+x int
+p *int
+a [3]int
+
+It's nice for more complex signatures, it makes them easier to read.
+f func(func(int,int) int, int) int
+
