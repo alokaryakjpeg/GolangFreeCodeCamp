@@ -109,3 +109,64 @@ o/p:
 
 Program exited.
 -----
+-----
+package main
+
+import "fmt"
+
+func main() {
+	sendsSoFar := 430
+	const sendsToAdd = 25
+	sendsSoFar = incrementSends(sendsSoFar, sendsToAdd)
+	fmt.Println("you've sent", sendsSoFar, "messages")
+}
+
+func incrementSends(sendsSoFar, sendsToAdd int) int {
+	sendsSoFar = sendsSoFar + sendsToAdd
+	return sendsSoFar
+}
+-----
+
+5. IGNORING RETURN VALUES 
+A function can return a value that the caller doesn't care about. We can explicitly ignore variables by using an underscore: _
+
+ex:
+
+func getPoint() (x int, y int) {
+  return 3, 4
+}
+
+// ignore y value
+x, _ := getPoint()
+
+-----
+package main
+
+import "fmt"
+
+func main() {
+	firstName, _ := getNames()
+	fmt.Println("Welcome to Textio,", firstName)
+}
+
+// don't edit below this line
+
+func getNames() (string, string) {
+	return "John", "Doe"
+}
+-----
+
+6. NAMED RETURN VALUES
+Return values may be given names, and if they are, then they are treated the same as if they were new variables defined at the top of the function.
+
+Named return values are best thought of as a way to document the purpose of the returned values.
+
+According to the tour of go:
+A return statement without arguments returns the named return values. This is known as a "naked" return. Naked return statements should be used only in short functions. They can harm readability in longer functions.
+
+func getCoords() (x, y int){
+  // x and y are initialized with zero values
+
+  return // automatically returns x and y
+}
+
