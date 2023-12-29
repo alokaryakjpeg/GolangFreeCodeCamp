@@ -81,3 +81,31 @@ func increment(x int){
     x++
 }
 -----
+
+-----
+package main
+
+import "fmt"
+
+func main() {
+	x := 5
+	y := increment(x)
+
+	fmt.Println(x)
+	fmt.Println(y)
+	// still prints 5,
+	// because the increment function
+	// received a copy of x
+}
+
+func increment(x int) int {
+	x++
+	return x
+}
+
+o/p:
+5
+6
+
+Program exited.
+-----
